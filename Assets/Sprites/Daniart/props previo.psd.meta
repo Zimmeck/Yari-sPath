@@ -1,0 +1,751 @@
+fileFormatVersion: 2
+guid: bf20c4a7e1277be4f8509a7c7743a393
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1364464076570978096
+    second: props previo_0
+  - first:
+      213: 6587291667133642587
+    second: props previo_1
+  - first:
+      213: 1231595725671377384
+    second: props previo_2
+  - first:
+      213: -5685057917998685539
+    second: props previo_3
+  - first:
+      213: -3701781322790132972
+    second: props previo_4
+  - first:
+      213: 8281259208672176148
+    second: props previo_5
+  - first:
+      213: -623401998115821812
+    second: props previo_6
+  - first:
+      213: -7204246754983236540
+    second: props previo_7
+  - first:
+      213: -6005635091479498048
+    second: props previo_8
+  - first:
+      213: 7692816005579452425
+    second: props previo_9
+  - first:
+      213: -2987269509805867847
+    second: props previo_10
+  - first:
+      213: 3521960614085531302
+    second: props previo_11
+  - first:
+      213: -1130834405802550966
+    second: props previo_12
+  - first:
+      213: 6144587421046626473
+    second: props previo_13
+  - first:
+      213: -374220326881321150
+    second: props previo_14
+  - first:
+      213: 3989964330734450718
+    second: props previo_15
+  - first:
+      213: -7341784296762670399
+    second: props previo_16
+  - first:
+      213: 7590185216309406058
+    second: props previo_17
+  - first:
+      213: 5508953453321907832
+    second: props previo_18
+  - first:
+      213: 685835837414695015
+    second: props previo_19
+  - first:
+      213: -825717917952819153
+    second: props previo_20
+  - first:
+      213: -3588314575487523103
+    second: props previo_21
+  - first:
+      213: 7559070366417718131
+    second: props previo_22
+  - first:
+      213: 3577713206499976566
+    second: props previo_23
+  - first:
+      213: 6171973343162698053
+    second: props previo_31
+  - first:
+      213: -4785523476007269584
+    second: props previo_26
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: props previo_0
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 3409
+        width: 464
+        height: 374
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daacc93c0f0f33c49ac429ec5f015f01
+      internalID: -1364464076570978096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_1
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 3425
+        width: 232
+        height: 370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8c8915be9c63840bb5e47eae68cb0f
+      internalID: 6587291667133642587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_2
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 3421
+        width: 313
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59de00bef7be95445aa2834b3e0a22b3
+      internalID: 1231595725671377384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_3
+      rect:
+        serializedVersion: 2
+        x: 1524
+        y: 3357
+        width: 125
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9de07d156ff74dd428b061690c1a4826
+      internalID: -5685057917998685539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_4
+      rect:
+        serializedVersion: 2
+        x: 2796
+        y: 2468
+        width: 293
+        height: 1397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ab66f6c25ca2847a53e03719aa6b9c
+      internalID: -3701781322790132972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_5
+      rect:
+        serializedVersion: 2
+        x: 1372
+        y: 2480
+        width: 337
+        height: 860
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b72cb827098e49448af5ce7dfd49915
+      internalID: 8281259208672176148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_6
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 3332
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a176b38581b5e94c9986fa13c520278
+      internalID: -623401998115821812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_7
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 3314
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31c5142d58861843a9f81ab61d994f6
+      internalID: -7204246754983236540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_8
+      rect:
+        serializedVersion: 2
+        x: 2045
+        y: 3294
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390925b36f88e6c489acd9c37e73a48d
+      internalID: -6005635091479498048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_9
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 2456
+        width: 208
+        height: 624
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ecb040b77c2e04cad1a860c20d3698
+      internalID: 7692816005579452425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_10
+      rect:
+        serializedVersion: 2
+        x: 1958
+        y: 3009
+        width: 206
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf915a5bfaa787245a9aea5f6ef6cbe0
+      internalID: -2987269509805867847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_11
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 2989
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21cd6fa57808e884089f8532230def86
+      internalID: 3521960614085531302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_12
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 2975
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37854226d9730874a9338f83984f903c
+      internalID: -1130834405802550966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_13
+      rect:
+        serializedVersion: 2
+        x: 2053
+        y: 2961
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a83df2a7b04f594eb114c556364a9fb
+      internalID: 6144587421046626473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_14
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 2450
+        width: 454
+        height: 503
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 951339d24cc175c41b85a6fe33eba137
+      internalID: -374220326881321150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_15
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 2477
+        width: 272
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68898b8e1cc3c2447ad1670edccef0ec
+      internalID: 3989964330734450718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_16
+      rect:
+        serializedVersion: 2
+        x: 1970
+        y: 2470
+        width: 505
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a902c962b060d284d9480c064f2b1a84
+      internalID: -7341784296762670399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_17
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 1634
+        width: 519
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff890ff6a54b9c54e877a7d6256289ae
+      internalID: 7590185216309406058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_18
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1637
+        width: 289
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81566c51858b9574db12439d125b6adf
+      internalID: 5508953453321907832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_19
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 1632
+        width: 296
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e71c42067175c54ca50573958ba6988
+      internalID: 685835837414695015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_20
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 1624
+        width: 252
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73806aaa3d03294da02fc7d84108c5a
+      internalID: -825717917952819153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_21
+      rect:
+        serializedVersion: 2
+        x: 2010
+        y: 1622
+        width: 459
+        height: 547
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68ab80891754aa42991be98c2e506ec
+      internalID: -3588314575487523103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_22
+      rect:
+        serializedVersion: 2
+        x: 2558
+        y: 1628
+        width: 405
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4d6a4d00ba7a964a818fab45467c647
+      internalID: 7559070366417718131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_23
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 1624
+        width: 216
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94c905747e5cfb6498080680c93abd04
+      internalID: 3577713206499976566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_31
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 518
+        width: 471
+        height: 406
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3897f1a420bd3a4aa662df7d21c592c
+      internalID: 6171973343162698053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: props previo_26
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 508
+        width: 682
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58d5b7e9bb44d0449fc4b40905696eb
+      internalID: -4785523476007269584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
