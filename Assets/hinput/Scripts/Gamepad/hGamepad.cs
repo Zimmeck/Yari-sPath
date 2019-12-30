@@ -6,24 +6,61 @@ using UnityEngine;
 /// </summary>
 public class hGamepad {
 	// --------------------
-	// NAME
+	// ID
 	// --------------------
 
 	/// <summary>
-	/// The index of a gamepad in the gamepad array of hinput, like 3 for hinput.gamepad[3].index. <br/>
-	/// hinput.anyGamepad.index will return -1.
+	/// Returns the real index of a gamepad in the gamepad list of hinput.
 	/// </summary>
-	public int index { get; }
+	/// <remarks>
+	/// If this is anyGamepad, returns -1.
+	/// </remarks>
+	public readonly int internalIndex;
 
 	/// <summary>
-	/// The full name of a gamepad, like “Linux_Gamepad4”.
+	/// Returns the index of a gamepad in the gamepad list of hinput.
 	/// </summary>
-	public string fullName { get; }
+	/// <remarks>
+	/// If this is anyGamepad, returns the index of the gamepad that is currently being pressed.
+	/// </remarks>
+	public virtual int index { get { return internalIndex; } }
+
+	/// <summary>
+	/// Returns the real name of a gamepad, like "Gamepad1".
+	/// </summary>
+	/// <remarks>
+	/// If this is anyGamepad, returns "AnyGamepad".
+	/// </remarks>
+	public readonly string internalName;
 	
 	/// <summary>
-	/// The type of a gamepad, like "Xbox One For Windows"
+	/// Returns the name of a gamepad, like "Gamepad1".
 	/// </summary>
-	public string type { get { return Input.GetJoystickNames()[index]; } }
+	/// <remarks>
+	/// If this is anyGamepad, returns the name of the gamepad that is currently being pressed.
+	/// </remarks>
+	public virtual string name { get { return internalName; } }
+
+	/// <summary>
+	/// Returns the real full name of a gamepad, like "Windows_Gamepad4".
+	/// </summary>
+	/// <remarks>
+	/// If this is anyGamepad, returns the full name of anyGamepad, like "Windows_AnyGamepad".
+	/// </remarks>
+	public readonly string internalFullName;
+
+	/// <summary>
+	/// Returns the full name of a gamepad, like "Windows_Gamepad4".
+	/// </summary>
+	/// <remarks>
+	/// If this is anyGamepad, returns the full name of the gamepad that is currently being pressed.
+	/// </remarks>
+	public virtual string fullName { get { return internalFullName; } }
+	
+	/// <summary>
+	/// Returns the type of a gamepad, like "Xbox One For Windows"
+	/// </summary>
+	public virtual string type { get { return Input.GetJoystickNames()[index]; } }
 
 
 	// --------------------
@@ -36,7 +73,7 @@ public class hGamepad {
 
 	private hTrigger _leftTrigger, _rightTrigger;
 
-	private hStick _leftStick, _rightStick, _dPad;
+	protected hStick _leftStick, _rightStick, _dPad;
 
 	private List<hStick> _sticks;
 	private List<hPressable> _buttons;
@@ -51,12 +88,13 @@ public class hGamepad {
 	// --------------------
 
 	public hGamepad (int index) {
-		this.index = index;
-
+		internalIndex = index;
 		vibration = new hVibration (index);
 
-		if (this.index >= 0) fullName = hUtils.os+"_Gamepad"+index;
-		else fullName = hUtils.os+"_AnyGamepad";
+		if (index == -1) internalName = "AnyGamepad";
+		else internalName = "Gamepad" + index;
+		
+		internalFullName = hUtils.os + "_" + internalName;
 	}
 
 	
@@ -266,7 +304,7 @@ public class hGamepad {
 	/// <summary>
 	/// The left stick of a gamepad.
 	/// </summary>
-	public hStick leftStick { 
+	public virtual hStick leftStick { 
 		get {
 			if (_leftStick == null) _leftStick = new hStick ("LeftStick", this, 0);
 			return _leftStick; 
@@ -276,7 +314,7 @@ public class hGamepad {
 	/// <summary>
 	/// The right stick click of a gamepad.
 	/// </summary>
-	public hStick rightStick { 
+	public virtual hStick rightStick { 
 		get {
 			if (_rightStick == null) _rightStick = new hStick ("RightStick", this, 1);
 			return _rightStick; 
@@ -286,9 +324,9 @@ public class hGamepad {
 	/// <summary>
 	/// The D-pad of a gamepad.
 	/// </summary>
-	public hStick dPad { 
+	public virtual hStick dPad { 
 		get {
-			if (_dPad == null) _dPad = new hStick ("DPad", this);
+			if (_dPad == null) _dPad = new hStick ("DPad", this, 2);
 			return _dPad; 
 		} 
 	}
@@ -298,7 +336,7 @@ public class hGamepad {
 	/// </summary>
 	public List<hStick> sticks { 
 		get {
-			if (_sticks == null) _sticks = new List<hStick>() { leftStick, rightStick, dPad };
+			if (_sticks == null) _sticks = new List<hStick> { leftStick, rightStick, dPad };
 			return _sticks;
 		}
 	}
@@ -309,7 +347,7 @@ public class hGamepad {
 	/// </summary>
 	public List<hPressable> buttons { 
 		get {
-			if (_buttons == null) _buttons = new List<hPressable>() {
+			if (_buttons == null) _buttons = new List<hPressable> {
 				A, B, X, Y,
 				leftBumper, rightBumper, leftTrigger, rightTrigger,
 				back, start, leftStickClick, rightStickClick, xBoxButton
@@ -320,6 +358,8 @@ public class hGamepad {
 
 	/// <summary>
 	/// A virtual button that returns every input of a gamepad at once.
+	/// It shares its name and full name with the input that is currently being pushed (except if you use "internal"
+	/// properties).
 	/// </summary>
 	public hAnyInput anyInput {
 		get {
@@ -373,6 +413,7 @@ public class hGamepad {
 			rightIntensity, 
 			duration);
 	}
+	
 	/// <summary>
 	/// Vibrate a gamepad with an instensity of leftIntensity on the left motor, and an intensity of rightIntensity on
 	/// the right motor, FOREVER. Don't forget to call StopVibration !

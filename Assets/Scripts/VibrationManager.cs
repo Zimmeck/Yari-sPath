@@ -27,14 +27,14 @@ public class VibrationManager : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (timeToStopVibration > 0)
-        {
-            hinput.gamepad[0].VibrateAdvanced(RVib, LVib);
-            timeToStopVibration -= Time.deltaTime;
-        }
-        else
-        {
-            hinput.gamepad[0].StopVibration();
-        }
+        //if (timeToStopVibration > 0)
+        //{
+        //    hinput.gamepad[0].VibrateAdvanced(RVib, LVib);
+        //    timeToStopVibration -= Time.deltaTime;
+        //}
+        //else
+        //{
+        //    hinput.gamepad[0].StopVibration();
+        //}
     }
 }

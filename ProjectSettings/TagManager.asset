@@ -16,6 +16,7 @@ TagManager:
   - Pin
   - Corner
   - SlotWeapon
+  - MovingSpike
   layers:
   - Default
   - TransparentFX

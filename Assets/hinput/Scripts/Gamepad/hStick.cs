@@ -7,38 +7,82 @@
 /// </summary>
 public class hStick {
 	// --------------------
-	// NAME
+	// ID
 	// --------------------
 
 	/// <summary>
-	/// Returns the name of the stick, like “LeftStick” or “DPad”.
+	/// Returns the index of a stick on its gamepad (0 for a left stick, 1 for a right stick, 2 for a D-pad).
+	/// </summary>
+	public int index { get; }
+
+	/// <summary>
+	/// Returns the name of a stick, like “LeftStick” or “DPad”.
 	/// </summary>
 	public string name { get; }
 
 	/// <summary>
-	/// Returns the full name of the stick, like “Mac_Gamepad2_RightStick”
+	/// Returns the real full name of a stick, like "Linux_Gamepad4_DPad".
 	/// </summary>
-	public string fullName { get; }
+	/// <remarks>
+	/// If this stick is attached to anyGamepad, returns something like "Linux_AnyGamepad_DPad".
+	/// </remarks>
+	public readonly string internalFullName;
 
 	/// <summary>
-	/// Returns the index of the gamepad this stick is attached to.
+	/// Returns the full name of a stick, like "Linux_Gamepad4_DPad".
 	/// </summary>
-	public int gamepadIndex { get; }
+	/// <remarks>
+	/// If this stick is attached to anyGamepad, returns its full name on the gamepad that is currently being pressed.
+	/// </remarks>
+	public string fullName { get { return gamepad.fullName + "_" + name; } }
 
 	/// <summary>
-	/// Returns the gamepad this stick is attached to.
+	/// Returns the real gamepad a stick is attached to.
 	/// </summary>
-	public hGamepad gamepad { 
-		get { 
-			if (gamepadIndex >= 0) return hinput.gamepad[gamepadIndex]; 
-			else return hinput.anyGamepad;
-		} 
-	}
+	/// <remarks>
+	/// If this stick is attached to anyGamepad, returns anyGamepad.
+	/// </remarks>
+	public readonly hGamepad internalGamepad;
 
 	/// <summary>
-	/// Returns the index of the stick on its gamepad (0 for a left stick, 1 for a right stick, 2 for a D-pad).
+	/// Returns the gamepad a stick is attached to.
 	/// </summary>
-	public int index { get; }
+	/// <remarks>
+	/// If this stick is attached to anyGamepad, returns the gamepad that is currently being pressed.
+	/// </remarks>
+	public virtual hGamepad gamepad { get { return internalGamepad; } }
+	
+	/// <summary>
+	/// Returns the real full name of the real gamepad a stick is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this stick is attached to anyGamepad, returns something like "Linux_AnyGamepad"
+	/// </remarks>
+	public string internalGamepadFullName { get { return internalGamepad.internalFullName; } }
+	
+	/// <summary>
+	/// Returns the full name of the gamepad a stick is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this stick is attached to anyGamepad, returns the full name of the gamepad that is currently being pressed.
+	/// </remarks>
+	public string gamepadFullName { get { return gamepad.fullName; } }
+	
+	/// <summary>
+	/// Returns the real index of the real gamepad a stick is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this stick is attached to anyGamepad, returns -1.
+	/// </remarks>
+	public int internalGamepadIndex { get { return internalGamepad.internalIndex; } }
+
+	/// <summary>
+	/// Returns the index of the gamepad a stick is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this stick is attached to anyGamepad, returns the index of the gamepad that is currently being pressed.
+	/// </remarks>
+	public int gamepadIndex { get { return gamepad.index; } }
 
 	
 	// --------------------
@@ -47,6 +91,7 @@ public class hStick {
 
 	public static implicit operator Vector2 (hStick hStick) { return hStick.position; }
 	public static implicit operator hPressable (hStick hStick) { return hStick.inPressedZone; }
+	public static implicit operator hStick (hStickPressedZone hStickPressedZone) { return hStickPressedZone.stick; }
 
 
 	// --------------------
@@ -55,9 +100,12 @@ public class hStick {
 
 
 	/// <summary>
-	/// Returns true if the current position of the stick is beyond a distance of hSettings.stickPressedZone of its origin. 
+	/// Returns true if the current position of the stick is beyond the limit of its pressed zone. 
 	/// Returns false otherwise.
 	/// </summary>
+	/// <remarks>
+	/// The size of the pressed zone of the sticks can be changed with the stickPressedZone property of hSettings.
+	/// </remarks>
 	public readonly hStickPressedZone inPressedZone;
 
 
@@ -65,30 +113,32 @@ public class hStick {
 	// CONSTRUCTORS
 	// --------------------
 
-	// For sticks
-	public hStick (string name, hGamepad gamepad, int index) {
+	public hStick(string name, hGamepad internalGamepad, int index) 
+		: this(name, internalGamepad, index, false) { }
+
+	protected hStick (string name, hGamepad internalGamepad, int index, bool isAnyGamepad) {
 		this.name = name;
-		gamepadIndex = gamepad.index;
-		fullName = gamepad.fullName+"_"+name;
+		internalFullName = internalGamepad.internalFullName + "_" + name;
+		this.internalGamepad = internalGamepad;
 		this.index = index;
-		
+
 		inPressedZone = new hStickPressedZone("PressedZone", this);
 
-		horizontalAxis = new hAxis (fullName+"_Horizontal");
-		verticalAxis = new hAxis (fullName+"_Vertical");
-	}
-
-	// For the D-pad
-	public hStick (string name, hGamepad gamepad) {
-		this.name = name;
-		gamepadIndex = gamepad.index;
-		fullName = gamepad.fullName+"_"+name;
-		index = 2;
+		if (isAnyGamepad) return; // Axes are unnecessary for anyGamepad
 		
-		inPressedZone = new hStickPressedZone("pressedZone", this);
+		if (index == 0 || index == 1) { // Sticks
+			horizontalAxis = new hAxis (internalFullName+"_Horizontal");
+			verticalAxis = new hAxis (internalFullName+"_Vertical");
+		}
 
-		horizontalAxis = new hAxis (fullName+"_Horizontal", fullName+"_Left", fullName+"_Right");
-		verticalAxis = new hAxis (fullName+"_Vertical", fullName+"_Down", fullName+"_Up");
+		if (index == 2) { // DPad
+			horizontalAxis = new hAxis (internalFullName+"_Horizontal", 
+				internalFullName+"_Right", 
+				internalFullName+"_Left");
+			verticalAxis = new hAxis (internalFullName+"_Vertical", 
+				internalFullName+"_Up", 
+				internalFullName+"_Down");
+		}
 	}
 	
 
@@ -112,8 +162,10 @@ public class hStick {
 	private readonly hAxis verticalAxis;
 
 	private void UpdateAxes () {
-		_horizontalRaw = horizontalAxis.positionRaw;
-		_verticalRaw = verticalAxis.positionRaw;
+		if (horizontalAxis == null || verticalAxis == null) return;
+		
+		horizontalRaw = horizontalAxis.positionRaw;
+		verticalRaw = verticalAxis.positionRaw;
 	}
 
 
@@ -264,17 +316,15 @@ public class hStick {
 	// PUBLIC PROPERTIES - RAW
 	// --------------------
 
-	private float _horizontalRaw;
 	/// <summary>
 	/// Returns the x coordinate of the stick. The dead zone is not taken into account.
 	/// </summary>
-	public float horizontalRaw { get { return _horizontalRaw; } }
+	public virtual float horizontalRaw { get; private set; }
 
-	private float _verticalRaw;
 	/// <summary>
 	/// Returns the y coordinate of the stick. The dead zone is not taken into account.
 	/// </summary>
-	public float verticalRaw { get { return _verticalRaw; } }
+	public virtual float verticalRaw { get; private set; }
 
 	/// <summary>
 	/// Returns the coordinates of the stick. The dead zone is not taken into account.
@@ -316,10 +366,13 @@ public class hStick {
 	}
 
 	/// <summary>
-	/// Returns the coordinates of the stick as a Vector3 facing hSettings.worldCamera. 
+	/// Returns the coordinates of the stick as a Vector3 facing the camera. 
 	/// The stick’s horizontal and vertical axes are interpreted as the camera’s right and up directions. 
 	/// The dead zone is not taken into account.
 	/// </summary>
+	/// <remarks>
+	/// The camera that is being used can be changed with the worldCamera property of hSettings.
+	/// </remarks>
 	public Vector3 worldPositionCameraRaw  { 
 		get { 
 			try { return (hSettings.worldCamera.right*horizontalRaw + hSettings.worldCamera.up*verticalRaw); }
@@ -343,9 +396,12 @@ public class hStick {
 	// --------------------
 
 	/// <summary>
-	/// Returns true if the current position of the stick is within a distance of hSettings.stickDeadZone of its origin. 
+	/// Returns true if the current position of the stick is within the limit of its dead zone. 
 	/// Returns false otherwise.
 	/// </summary>
+	/// <remarks>
+	/// The size of the dead zone of the sticks can be changed with the stickDeadZone property of hSettings.
+	/// </remarks>
 	public bool inDeadZone { get { return distanceRaw < hSettings.stickDeadZone; } }
 
 	private Vector2 _position;
@@ -416,9 +472,12 @@ public class hStick {
 	}
 
 	/// <summary>
-	/// Returns the coordinates of the stick as a Vector3 facing hSettings.worldCamera. 
+	/// Returns the coordinates of the stick as a Vector3 facing the camera. 
 	/// The stick’s horizontal and vertical axes are interpreted as the camera’s right and up directions.
 	/// </summary>
+	/// <remarks>
+	/// The camera that is being used can be changed with the worldCamera property of hSettings.
+	/// </remarks>
 	public Vector3 worldPositionCamera { 
 		get { 
 			try { return (hSettings.worldCamera.right*horizontal + hSettings.worldCamera.up*vertical); }

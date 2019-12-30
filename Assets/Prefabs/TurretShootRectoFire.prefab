@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5236375375221737696}
   - component: {fileID: 5236375375221737697}
   m_Layer: 0
-  m_Name: FireTurretShootRecto
+  m_Name: TurretShootRectoFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,10 +126,11 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -199,6 +200,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 6485057184076057722, guid: a60bea55f13b4fb41af7dfe444fb3fd1,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485057184076057722, guid: a60bea55f13b4fb41af7dfe444fb3fd1,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485057184076057722, guid: a60bea55f13b4fb41af7dfe444fb3fd1,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7469446638291988365, guid: a60bea55f13b4fb41af7dfe444fb3fd1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,21 +274,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6485057184076057722, guid: a60bea55f13b4fb41af7dfe444fb3fd1,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.9433962
-      objectReference: {fileID: 0}
-    - target: {fileID: 6485057184076057722, guid: a60bea55f13b4fb41af7dfe444fb3fd1,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6485057184076057722, guid: a60bea55f13b4fb41af7dfe444fb3fd1,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7857358783257175365, guid: a60bea55f13b4fb41af7dfe444fb3fd1, type: 3}

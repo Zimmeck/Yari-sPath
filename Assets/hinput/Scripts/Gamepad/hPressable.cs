@@ -8,33 +8,97 @@
 /// </summary>
 public abstract class hPressable {
 	// --------------------
-	// NAME
+	// ID
 	// --------------------
 
 	/// <summary>
-	/// Returns the name of the input , like “A”, “LeftTrigger” or “DPad_Up”.
+	/// Returns the real name of an input, like “A”, “LeftTrigger” or “AnyInput”.
 	/// </summary>
-	public readonly string name;
+	/// <remarks>
+	/// If this is anyInput, returns "AnyInput".
+	/// </remarks>
+	public readonly string internalName;
 
 	/// <summary>
-	/// Returns the full name of the input , like “Mac_Gamepad2_RightStickClick”
+	/// Returns the name of the an input, like “A”, “LeftTrigger” or “DPad_Up”.
 	/// </summary>
-	public readonly string fullName;
+	/// <remarks>
+	/// If this is anyInput, returns the name of the input that is currently being pressed.
+	/// </remarks>
+	public virtual string name { get { return internalName; } }
 
 	/// <summary>
-	/// Returns the index of the gamepad this input is attached to.
+	/// Returns the real full name of an input, like “Mac_Gamepad2_A”
 	/// </summary>
-	public readonly int gamepadIndex;
+	/// <remarks>
+	/// If this is anyInput, returns something like "Mac_Gamepad2_AnyInput".
+	/// If this is attached to anyGamepad, returns something like "Mac_AnyGamepad_A".
+	/// </remarks>
+	public readonly string internalFullName;
 
 	/// <summary>
-	/// Returns the gamepad this input is attached to.
+	/// Returns the full name of an input, like “Mac_Gamepad2_A”
 	/// </summary>
-	public hGamepad gamepad { 
-		get { 
-			if (gamepadIndex >= 0) return hinput.gamepad[gamepadIndex]; 
-			else return hinput.anyGamepad;
-		} 
+	/// <remarks>
+	/// If this is anyInput, returns the full name of the input that is currently being pressed on the
+	/// gamepad this input is attached to.
+	/// If this is attached to anyGamepad, returns the full name of the corresponding button on the gamepad that is
+	/// currently being pressed.
+	/// </remarks>
+	public virtual string fullName { get { return gamepad.fullName + "_" + name; } }
+
+	/// <summary>
+	/// Returns the real gamepad an input is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this is attached to anyGamepad, returns anyGamepad.
+	/// </remarks>
+	public readonly hGamepad internalGamepad;
+
+	/// <summary>
+	/// Returns the gamepad an input is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this is attached to anyGamepad, returns the gamepad that is currently being pressed.
+	/// </remarks>
+	public hGamepad gamepad {
+		get {
+			if (internalGamepad is hAnyGamepad) return ((hAnyGamepad) internalGamepad).gamepad;
+			else return internalGamepad;
+		}
 	}
+	
+	/// <summary>
+	/// Returns the real full name of the real gamepad an input is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this is attached to anyGamepad, returns something like "Mac_AnyGamepad".
+	/// </remarks>
+	public string internalGamepadFullName { get { return internalGamepad.internalFullName; } }
+	
+	/// <summary>
+	/// Returns the full name of the gamepad an input is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this is attached to anyGamepad, returns the full name of the gamepad that is currently being pressed.
+	/// </remarks>
+	public string gamepadFullName { get { return gamepad.fullName; } }
+	
+	/// <summary>
+	/// Returns the real index of the real gamepad an input is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this is attached to anyGamepad, returns -1.
+	/// </remarks>
+	public int internalGamepadIndex { get { return internalGamepad.internalIndex; } }
+
+	/// <summary>
+	/// Returns the index of the gamepad an input is attached to.
+	/// </summary>
+	/// <remarks>
+	/// If this is attached to anyGamepad, returns the index of the gamepad that is currently being pressed.
+	/// </remarks>
+	public int gamepadIndex { get { return gamepad.index; } }
 
 	
 	// --------------------
@@ -48,10 +112,12 @@ public abstract class hPressable {
 	// CONSTRUCTOR
 	// --------------------
 
-	protected hPressable(string name, string fullName, int gamepadIndex) {
-		this.name = name;
-		this.fullName = fullName;
-		this.gamepadIndex = gamepadIndex;
+	protected hPressable(string internalName, hGamepad internalGamepad, string internalFullName) {
+		this.internalName = internalName;
+		this.internalFullName = internalFullName;
+		this.internalGamepad = internalGamepad;
+		
+		lastPressed = Mathf.NegativeInfinity; // *force wave* this input was never pressed
 	}
 
 	
@@ -60,17 +126,17 @@ public abstract class hPressable {
 	// --------------------
 
 	/// <summary>
-	/// Returns the current position of the input.
+	/// Returns the current position of an input.
 	/// </summary>
 	public abstract float position { get; }
 
 	/// <summary>
-	/// Returns true if the input is pressed. Returns false otherwise.
+	/// Returns true if an input is pressed. Returns false otherwise.
 	/// </summary>
 	public abstract bool pressed { get; }
 
 	/// <summary>
-	/// Returns true if the input is in its dead zone. Returns false otherwise.
+	/// Returns true if an input is in its dead zone. Returns false otherwise.
 	/// </summary>
 	public abstract bool inDeadZone { get; }
 
@@ -108,98 +174,114 @@ public abstract class hPressable {
 	// --------------------
 	
 	/// <summary>
-	/// Returns the current raw position of the input, i.e. not taking the dead zone into account.
+	/// Returns the current raw position of an input, i.e. not taking the dead zone into account.
 	/// </summary>
 	public float positionRaw { get; protected set; }
 
 	/// <summary>
-	/// Returns true if the input is not pressed. Returns false otherwise.
+	/// Returns true if an input is not pressed. Returns false otherwise.
 	/// </summary>
 	public bool released { get { return !pressed; } }
 
 	/// <summary>
-	/// Returns the date the input was last released (in seconds from the beginning of the game). 
-	/// Returns zero if it hasn't been pressed.
+	/// Returns the date an input was last released (in seconds from the beginning of the game). 
+	/// Returns 0 if it hasn't been pressed.
 	/// </summary>
 	public float lastReleased { get; private set; }
 
 	/// <summary>
-	/// Returns the date the input was last pressed (in seconds from the beginning of the game). 
+	/// Returns the date an input was last pressed (in seconds from the beginning of the game). 
 	/// Returns 0 if it hasn't been pressed.
 	/// </summary>
 	public float lastPressed { get; private set; }
 
 	/// <summary>
-	/// Returns the date the input was last justPressed (in seconds from the beginning of the game). 
+	/// Returns the date an input was last justPressed (in seconds from the beginning of the game). 
 	/// Returns 0 if it hasn't been pressed.
 	/// </summary>
 	public float lastPressStart { get; private set; }
 
 	/// <summary>
-	/// Returns true if the input is currently pressed and was released last frame. Returns false otherwise.
+	/// Returns true if an input is currently pressed and was released last frame. Returns false otherwise.
 	/// </summary>
 	public bool justPressed { get { return (pressed && (lastPressed - lastReleased) <= hUpdater.maxDeltaTime); } }
 
 	/// <summary>
-	/// Returns true if the input is currently released and was pressed last frame. Returns false otherwise.
+	/// Returns true if an input is currently released and was pressed last frame. Returns false otherwise.
 	/// </summary>
 	public bool justReleased { get { return (released && (lastReleased - lastPressed) <= hUpdater.maxDeltaTime); } }
 
 	/// <summary>
-	/// Returns true if the last two presses started less than hSettings.doublePressDuration seconds apart 
-	/// (including current press if the input is pressed). Returns false otherwise.
+	/// Returns true if the last two presses started a short time apart (including current press if the input is
+	/// pressed). Returns false otherwise.
 	/// </summary>
+	/// <remarks>
+	/// The maximum duration of a double press can be changed with the doublePressDuration property of hSettings.
+	/// </remarks>
 	public bool lastPressWasDouble { get { return (lastPressStart - penultimatePressStart) <= hSettings.doublePressDuration; } }
 
 	/// <summary>
-	/// Returns true if the input is currently pressed, 
-	/// and the last two presses started less than hSettings.doublePressDuration seconds apart. 
+	/// Returns true if an input is currently pressed and the last two presses started a short time apart. 
 	/// Returns false otherwise.
 	/// </summary>
+	/// <remarks>
+	/// The maximum duration of a double press can be changed with the doublePressDuration property of hSettings.
+	/// </remarks>
 	public bool doublePress { get { return pressed && lastPressWasDouble; } }
 
 	/// <summary>
-	/// Returns true if the input is currently justPressed, 
-	/// and the last two presses started less than hSettings.doublePressDuration seconds apart. 
+	/// Returns true if an input is currently justPressed and the last two presses started a short time apart. 
 	/// Returns false otherwise.
 	/// </summary>
+	/// <remarks>
+	/// The maximum duration of a double press can be changed with the doublePressDuration property of hSettings.
+	/// </remarks>
 	public bool doublePressJustPressed { get { return justPressed && lastPressWasDouble; } }
 
 	/// <summary>
-	/// Returns true if the input is currently justReleased, 
-	/// and the last two presses started less than hSettings.doublePressDuration seconds apart. 
+	/// Returns true if an input is currently justReleased and the last two presses started a short time apart. 
 	/// Returns false otherwise.
 	/// </summary>
+	/// <remarks>
+	/// The maximum duration of a double press can be changed with the doublePressDuration property of hSettings.
+	/// </remarks>
 	public bool doublePressJustReleased { get { return justReleased && lastPressWasDouble; } }
 
 	/// <summary>
-	/// Returns true if the last press has lasted longer than hSettings.longPressDuration seconds 
-	/// (including current press if the input is pressed). Returns false otherwise.
+	/// Returns true if the last press was long (including current press if the input is pressed).
+	/// Returns false otherwise.
 	/// </summary>
+	/// <remarks>
+	/// The minimum duration of a long press can be changed with the longPressDuration property of hSettings.
+	/// </remarks>
 	public bool lastPressWasLong { get { return (lastPressed - lastPressStart) >= hSettings.longPressDuration; }}
 
 	/// <summary>
-	/// Returns true if the input is currently pressed 
-	/// and the press has lasted longer than hSettings.longPressDuration seconds. 
+	/// Returns true if an input is currently pressed and the press was long. 
 	/// Returns false otherwise.
 	/// </summary>
+	/// <remarks>
+	/// The minimum duration of a long press can be changed with the longPressDuration property of hSettings.
+	/// </remarks>
 	public bool longPress { get { return pressed && lastPressWasLong; } }
 
 	/// <summary>
-	/// Returns true if the input is currently justReleased, 
-	/// and the last press has lasted longer than hSettings.longPressDuration seconds. 
+	/// Returns true if an input is currently justReleased, and the last press was long. 
 	/// Returns false otherwise.
 	/// </summary>
+	/// <remarks>
+	/// The minimum duration of a long press can be changed with the longPressDuration property of hSettings.
+	/// </remarks>
 	public bool longPressJustReleased { get { return justReleased && lastPressWasLong; } }
 
 	/// <summary>
-	/// If the input is pressed, returns the amount of time that has passed since it is pressed. 
+	/// If an input is pressed, returns the amount of time that has passed since it is pressed. 
 	/// Returns 0 otherwise.
 	/// </summary>
 	public float pressDuration { get { if (pressed) return (Time.unscaledTime - lastPressStart); return 0f; } }
 
 	/// <summary>
-	/// If the input is released, returns the amount of time that has passed since it is released. 
+	/// If an input is released, returns the amount of time that has passed since it is released. 
 	/// Returns 0 otherwise.
 	/// </summary>
 	public float releaseDuration { get { if (released) return (Time.unscaledTime - lastPressed); return 0f; } }

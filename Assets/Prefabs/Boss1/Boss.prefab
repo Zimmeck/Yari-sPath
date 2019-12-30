@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a0ac8e8c189c94c95db1f61611502b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossTurrets: []
+  bossSpikes: []
   darkSpearPrefabR: {fileID: 2853871389134640958, guid: 98ab7dbfa0790e94f94eb80a2b9118ba,
     type: 3}
   darkSpearPrefabL: {fileID: 2853871389134640958, guid: d48b8805260398947a890c96205c0a7a,
@@ -163,10 +165,25 @@ MonoBehaviour:
   aimSpeed: 3
   handsSpearDestroyObj: {fileID: 6389711685716424003}
   bossCam: {fileID: 0}
+  bossCam2: {fileID: 0}
+  bossCam3: {fileID: 0}
+  headSprite: {fileID: 0}
+  angryFaceSprite: {fileID: 0}
+  relaxFaceSprite: {fileID: 0}
+  maskSprite: {fileID: 0}
+  aimLine: {fileID: 0}
+  platformLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  shootEffect: {fileID: 0}
   startTimeToShoot: 2
+  timeToShoot: 0
   health: 3
   isChangingStage: 0
   activated: 0
+  shootingEffectTime: 0
+  bossGateEnter: {fileID: 0}
+  bossGateExit: {fileID: 0}
 --- !u!1 &6389711686733818788
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,10 +229,11 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -292,10 +310,11 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -431,6 +450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bd1a2d6c5499446800eb0e0160ce6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  withMask: 0
 --- !u!58 &6389711687603069936
 CircleCollider2D:
   m_ObjectHideFlags: 0

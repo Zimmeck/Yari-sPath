@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   StartTimeToOpenSpikes: 2
+  timeToOpenSpikes: 0
   openPosition: {fileID: 7538996720710340382}
   startPosotion: {fileID: 7538996720249241235}
   open: 0
@@ -179,6 +180,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: NoWalkableSpearDestroyer
       objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.030918121
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7da50fa8dd842f045abf80ca9960b32b,
+        type: 3}
+    - target: {fileID: 3628507278147098726, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3628507278147098727, guid: 807f72abf71a7534b980ba27807cad6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -239,37 +271,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098726, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.030918121
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7da50fa8dd842f045abf80ca9960b32b,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 807f72abf71a7534b980ba27807cad6c, type: 3}
 --- !u!1 &4458097674252409733 stripped
@@ -295,6 +296,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NoWalkableSpearDestroyer (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.030918121
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628507278147098726, guid: 807f72abf71a7534b980ba27807cad6c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3628507278147098727, guid: 807f72abf71a7534b980ba27807cad6c,
         type: 3}
@@ -360,31 +386,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098726, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3628507278147098725, guid: 807f72abf71a7534b980ba27807cad6c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.030918121
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 807f72abf71a7534b980ba27807cad6c, type: 3}

@@ -1,7 +1,7 @@
 ﻿// hinput class measuring a stick axis, and feeding it to a hStick.
 public class hAxis {
 	// --------------------
-	// NAME
+	// ID
 	// --------------------
 
 	private readonly string fullAxisName;
@@ -41,8 +41,8 @@ public class hAxis {
 
 			float buttonValue = 0f;
 			if (fullPositiveButtonName != "" && fullNegativeButtonName != "") {
-				if (hUtils.GetButton(fullPositiveButtonName, false)) buttonValue = 1;
-				if (hUtils.GetButton(fullNegativeButtonName, false)) buttonValue = -1;
+				if (hUtils.GetButton(fullPositiveButtonName, false)) buttonValue += 1;
+				if (hUtils.GetButton(fullNegativeButtonName, false)) buttonValue -= 1;
 			}
 
 			return (axisValue + buttonValue);

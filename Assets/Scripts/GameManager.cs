@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public Vector2 mapLastPosition;
     public int collectibleCount;
     public string whatLevelCompleted;
+    public int lifes;
+    public int savedLifes;
 
 
     public int bouncy;

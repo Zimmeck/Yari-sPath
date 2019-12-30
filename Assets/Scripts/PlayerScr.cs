@@ -10,6 +10,8 @@ public class PlayerScr : MonoBehaviour
     public VibrationManager vibrationManager;
     private CinemachineVirtualCamera myVC;
 
+    public float mana;
+    public float maxMana;
     public int maxSpears;
     public float moveSpeed;
     public float changingRoomSpeed;
@@ -164,6 +166,7 @@ public class PlayerScr : MonoBehaviour
 
     public void Die()
     {
+        gm.lifes -= 1;
         myAnimator.SetBool("Dying", true);
         backSpearsObject.GetComponent<Rigidbody2D>().simulated = true;
         backSpearsObject.GetComponent<Collider2D>().isTrigger = false;
@@ -173,6 +176,8 @@ public class PlayerScr : MonoBehaviour
         rb.isKinematic = true;
         myCollider.enabled = false;
         canControlPlayer = false;
+
+
         
         //Save spear selected
         if (nextSpearIsBouncy)
@@ -198,6 +203,7 @@ public class PlayerScr : MonoBehaviour
 
     public void DieFalling()
     {
+        gm.lifes -= 1;
         myAnimator.SetBool("Dying", true);
         backSpearsObject.GetComponent<Rigidbody2D>().simulated = true;
         backSpearsObject.GetComponent<Collider2D>().isTrigger = false;
@@ -493,7 +499,7 @@ public class PlayerScr : MonoBehaviour
     {
         if (!holdingButtonChecked)
         {
-            if (hinput.gamepad[0].leftTrigger.pressed)
+            if (Input.GetAxis("LeftTrigger") == 1)
             {
                 timeToHoldButton += Time.deltaTime;
             }
@@ -505,7 +511,7 @@ public class PlayerScr : MonoBehaviour
             }
         }
 
-        if (hinput.gamepad[0].leftTrigger.released)
+        if (Input.GetAxis("LeftTrigger") == 0)
         {
             if (holdingButtonChecked)
             {
@@ -516,7 +522,7 @@ public class PlayerScr : MonoBehaviour
 
         }
 
-        if (hinput.gamepad[0].leftTrigger.released)
+        if (Input.GetAxis("LeftTrigger") == 0)
         {
             timeToHoldButton = 0;
         }
@@ -524,6 +530,12 @@ public class PlayerScr : MonoBehaviour
 
     private void GoToStartPosition()
     {
+        if (gm.lifes == 0)
+        {
+            gm.lastCheckPointPos = startPosition.transform.position;
+            gm.lifes = gm.savedLifes;
+        }
+
         transform.position = gm.lastCheckPointPos;
 
         if (vcParent != null)
@@ -561,6 +573,8 @@ public class PlayerScr : MonoBehaviour
         myVC = GameObject.Find("CM_FollowPlayer").GetComponent<CinemachineVirtualCamera>();
         wheelAnim = wheelPanel.GetComponent<Animator>();
         GoToStartPosition();
+
+        mana = maxMana;
 
         bouncySpearActive = PlayerPrefs.GetInt("bouncySpear");
         bombSpearActive = PlayerPrefs.GetInt("bombSpear");
@@ -820,6 +834,16 @@ public class PlayerScr : MonoBehaviour
     void Update()
     {
 
+        //MANA
+        if (mana < maxMana)
+        {
+            mana += Time.deltaTime /2;
+        }
+        else
+        {
+            mana = maxMana;
+        }
+
         CheckHoldLeftTrigger();
         timeToSpawnWalkEffect -= Time.deltaTime;
 
@@ -1013,7 +1037,11 @@ public class PlayerScr : MonoBehaviour
                         {
                             if (nextSpearIsBouncy || nextSpearIsBomb || nextSpearIsFire || nextSpearIsStay)
                             {
-                                ThrowSpear();
+                                if (mana >= 1)
+                                {
+                                    mana -= 1;
+                                    ThrowSpear();
+                                }
                             }
                         }
                     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2179995464595234442}
   - component: {fileID: 2179995464595234441}
   - component: {fileID: 2179995464595234446}
+  - component: {fileID: 4429554036631615575}
   m_Layer: 9
   m_Name: WalkableNoSpearableWood
   m_TagString: Untagged
@@ -47,10 +48,11 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ffb919bdbc5d5b44eb0ed373b1f7fc4b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,3 +128,16 @@ MonoBehaviour:
   inFire: 0
   timeToBurn: 0
   startTimeToBurn: 3
+--- !u!114 &4429554036631615575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2179995464595234447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69347aacd48b0b24fbc51aa292e12b1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}

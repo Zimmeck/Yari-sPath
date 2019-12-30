@@ -50,10 +50,11 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -178,16 +179,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3908767530117692986}
     m_Modifications:
-    - target: {fileID: 8711329444268536090, guid: cdffc9c7cbe941a41be36270ed50f3ed,
-        type: 3}
-      propertyPath: m_Name
-      value: DestroyingBlockParticles
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711329444268536090, guid: cdffc9c7cbe941a41be36270ed50f3ed,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4730759744782440910, guid: cdffc9c7cbe941a41be36270ed50f3ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -241,6 +232,16 @@ PrefabInstance:
     - target: {fileID: 4730759744782440910, guid: cdffc9c7cbe941a41be36270ed50f3ed,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711329444268536090, guid: cdffc9c7cbe941a41be36270ed50f3ed,
+        type: 3}
+      propertyPath: m_Name
+      value: DestroyingBlockParticles
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711329444268536090, guid: cdffc9c7cbe941a41be36270ed50f3ed,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
