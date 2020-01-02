@@ -34,7 +34,7 @@ TagManager:
   - MovingPlatformTrigger
   - NoSpearCollision
   - Enemy
-  - 
+  - Tilemap
   - 
   - 
   - 
