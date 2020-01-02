@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: 803911a074062bc48888e63f5b352e91
+guid: 3b149ac81d16bed4fadd79cd6f8ae313
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - mySprite: {instanceID: 0}
-  - explossionPrefab: {instanceID: 0}
-  - smokePrefab: {instanceID: 0}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

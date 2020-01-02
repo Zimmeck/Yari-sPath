@@ -105,6 +105,7 @@ public class Boss1 : MonoBehaviour
             }
 
             Instantiate(shootEffect, shootPoint.transform.position, Quaternion.identity);
+            Camera.main.gameObject.GetComponent<CameraBehaviour>().DoCameraShake();
         }
     }
 
@@ -149,6 +150,7 @@ public class Boss1 : MonoBehaviour
                 activated = false;
                 DesactivarCosasAlAcabar();
             }
+            aimLine.widthMultiplier = 1;
             Camera.main.gameObject.GetComponent<CameraBehaviour>().DoCameraShake();
             Camera.main.gameObject.GetComponent<CameraBehaviour>().DoLongCameraShake();
             StartCoroutine(HurtEffect());

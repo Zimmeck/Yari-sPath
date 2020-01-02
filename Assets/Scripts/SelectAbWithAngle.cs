@@ -65,42 +65,6 @@ public class SelectAbWithAngle : MonoBehaviour
 
 
 
-        //aora vemos
-        //if (abilityToPick == "bouncy")
-        //{
-        //    if (FindObjectOfType<GameManager>().bouncySelected)
-        //    {
-        //        isSelected = true;
-        //        FindObjectOfType<SelectAbWithAngle>().abilityPickedCount += 1;
-        //    }
-        //}
-
-        //if (abilityToPick == "bomb")
-        //{
-        //    if (FindObjectOfType<GameManager>().bombSelected)
-        //    {
-        //        isSelected = true;
-        //        FindObjectOfType<SelectAbWithAngle>().abilityPickedCount += 1;
-        //    }
-        //}
-
-        //if (abilityToPick == "fire")
-        //{
-        //    if (FindObjectOfType<GameManager>().fireSelected)
-        //    {
-        //        isSelected = true;
-        //        FindObjectOfType<SelectAbWithAngle>().abilityPickedCount += 1;
-        //    }
-        //}
-
-        //if (abilityToPick == "stay")
-        //{
-        //    if (FindObjectOfType<GameManager>().staySelected)
-        //    {
-        //        isSelected = true;
-        //        FindObjectOfType<SelectAbWithAngle>().abilityPickedCount += 1;
-        //    }
-        //}
     }
 
     // Update is called once per frame

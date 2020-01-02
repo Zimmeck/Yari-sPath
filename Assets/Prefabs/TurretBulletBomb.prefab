@@ -179,6 +179,8 @@ MonoBehaviour:
   mySprite: {fileID: 5588432302013348037}
   explossionPrefab: {fileID: 8671892664945028374, guid: fdd9c5f97c0a6674aabf67f01021b37d,
     type: 3}
+  smokePrefab: {fileID: 3595174124269355406, guid: dcd0b3615a07bdc4ca752a51d761c7e5,
+    type: 3}
   explode: 0
   exploding: 0
   delayTime: 0

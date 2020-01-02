@@ -26,6 +26,7 @@ public class SpearScr : MonoBehaviour
     public bool isLast;
     public SpriteRenderer mySprite;
     public GameObject explosionPrefab;
+    public GameObject smokePrefab;
     public GameObject firePrefab;
     private bool thereWasStaySpear;
 
@@ -104,6 +105,8 @@ public class SpearScr : MonoBehaviour
     void Detonate()
     {
         GameObject explosionInstance = Instantiate(explosionPrefab, detectionPoint.position, Quaternion.identity);
+        Camera.main.gameObject.GetComponent<CameraBehaviour>().DoCameraShake();
+        Instantiate(smokePrefab, detectionPoint.position, Quaternion.identity);
         FindObjectOfType<VibrationManager>().Vibrate(.5f, .5f, .1f);
         DestroySpear();
     }

@@ -106,6 +106,7 @@ public class PlayerScr : MonoBehaviour
     private GameObject pickedObject;
     private RaycastHit2D wallInfoRun;
     private RaycastHit2D wallInfoDropObj;
+    public GameObject manaParent;
 
     public int bouncySpearActive;
     public int bombSpearActive;
@@ -572,6 +573,7 @@ public class PlayerScr : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         myVC = GameObject.Find("CM_FollowPlayer").GetComponent<CinemachineVirtualCamera>();
         wheelAnim = wheelPanel.GetComponent<Animator>();
+        FindObjectOfType<CameraBehaviour>().ActivateFollowCam();
         GoToStartPosition();
 
         mana = maxMana;
@@ -844,6 +846,26 @@ public class PlayerScr : MonoBehaviour
             mana = maxMana;
         }
 
+        if (mana == 2)
+        {
+            manaParent.transform.GetChild(0).gameObject.SetActive(true);
+            manaParent.transform.GetChild(1).gameObject.SetActive(true);
+        }
+
+        if (mana < 2)
+        {
+            manaParent.transform.GetChild(0).gameObject.SetActive(true);
+            manaParent.transform.GetChild(1).gameObject.SetActive(false);
+        }
+
+        if (mana < 1)
+        {
+            manaParent.transform.GetChild(0).gameObject.SetActive(false);
+            manaParent.transform.GetChild(1).gameObject.SetActive(false);
+        }
+
+        //____________
+
         CheckHoldLeftTrigger();
         timeToSpawnWalkEffect -= Time.deltaTime;
 
@@ -1111,30 +1133,30 @@ public class PlayerScr : MonoBehaviour
             //backspearsssss
             if (spearsCountParent.transform.childCount == 0)
             {
-                backSpears[0].SetActive(true);
-                backSpears[1].SetActive(true);
-                backSpears[2].SetActive(true);
+                backSpears[0].GetComponent<SpriteRenderer>().enabled = true;
+                backSpears[1].GetComponent<SpriteRenderer>().enabled = true;
+                backSpears[2].GetComponent<SpriteRenderer>().enabled = true;
             }
 
             if (spearsCountParent.transform.childCount == 1)
             {
-                backSpears[0].SetActive(false);
-                backSpears[1].SetActive(true);
-                backSpears[2].SetActive(true);
+                backSpears[0].GetComponent<SpriteRenderer>().enabled = false;
+                backSpears[1].GetComponent<SpriteRenderer>().enabled = true;
+                backSpears[2].GetComponent<SpriteRenderer>().enabled = true;
             }
 
             if (spearsCountParent.transform.childCount == 2)
             {
-                backSpears[0].SetActive(false);
-                backSpears[1].SetActive(false);
-                backSpears[2].SetActive(true);
+                backSpears[0].GetComponent<SpriteRenderer>().enabled = false;
+                backSpears[1].GetComponent<SpriteRenderer>().enabled = false;
+                backSpears[2].GetComponent<SpriteRenderer>().enabled = true;
             }
 
             if (spearsCountParent.transform.childCount == 3)
             {
-                backSpears[0].SetActive(false);
-                backSpears[1].SetActive(false);
-                backSpears[2].SetActive(false);
+                backSpears[0].GetComponent<SpriteRenderer>().enabled = false;
+                backSpears[1].GetComponent<SpriteRenderer>().enabled = false;
+                backSpears[2].GetComponent<SpriteRenderer>().enabled = false;
             }
 
             //Ladders

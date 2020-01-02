@@ -6,6 +6,7 @@ public class Explosive : MonoBehaviour
 {
     public SpriteRenderer mySprite;
     public GameObject explossionPrefab;
+    public GameObject smokePrefab;
     public bool explode;
     public bool exploding;
     public float delayTime;
@@ -45,6 +46,7 @@ public class Explosive : MonoBehaviour
     {
         Camera.main.gameObject.GetComponent<CameraBehaviour>().DoCameraShake();
         GameObject explosionInstance = Instantiate(explossionPrefab, transform.position, Quaternion.identity);
+        Instantiate(smokePrefab, transform.position, Quaternion.identity);
         FindObjectOfType<VibrationManager>().Vibrate(.5f,.5f,.1f);
         Destroy(gameObject);
     }
