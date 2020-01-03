@@ -19,6 +19,13 @@ public class Flamable : MonoBehaviour
             fireInstance = Instantiate(firePrefab, firePoint.position, Quaternion.identity);
             fireInstance.transform.parent = firePoint.transform;
             timeToBurn = startTimeToBurn;
+            if (GetComponent<Torch>() != null)
+            {
+                if (GetComponent<Torch>().isKey)
+                {
+                    GetComponent<Torch>().ActivateTorchKey();
+                }
+            }
         }
     }
 
@@ -30,6 +37,13 @@ public class Flamable : MonoBehaviour
             if (fireInstance != null) 
             {
                 Destroy(fireInstance);
+            }
+            if (GetComponent<Torch>() != null)
+            {
+                if (GetComponent<Torch>().isKey)
+                {
+                    GetComponent<Torch>().DeactivateTorchKey();
+                }
             }
 
             timeToBurn = startTimeToBurn;

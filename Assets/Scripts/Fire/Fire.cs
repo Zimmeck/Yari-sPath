@@ -42,6 +42,14 @@ public class Fire : MonoBehaviour
         transform.eulerAngles = Vector2.zero;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<Flamable>() != null)
+        {
+            collision.GetComponent<Flamable>().GetFired();
+        }
+    }
+
 
     private void OnDrawGizmos()
     {

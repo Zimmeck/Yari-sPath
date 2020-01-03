@@ -139,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6973459162157587792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 195.25, y: -7.5, z: -5.0722656}
+  m_LocalPosition: {x: 195.25, y: -7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6973459162099770263}
@@ -225,6 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00e9d6240744a14eaedbd9cb20eaea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isKey: 0
+  inFire: 0
+  allTorchsInFire: 0
 --- !u!1 &6973459162546552231
 GameObject:
   m_ObjectHideFlags: 0
