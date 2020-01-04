@@ -8,7 +8,7 @@ public class Turret : MonoBehaviour
     public GameObject bulletPrefab;
 
     public float startTimeToShot1;
-    private float timeToShot1;
+    public float timeToShot1;
 
     public float startTimeToShotRafaga;
     private GameObject player;
