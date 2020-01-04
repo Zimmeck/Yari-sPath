@@ -33,5 +33,10 @@ public class Spikes : MonoBehaviour
                 collision.GetComponentInParent<PlayerScr>().Die();
             }
         }
+
+        if (collision.GetComponent<FlyingEnemyMovement>() != null)
+        {
+            collision.GetComponent<FlyingEnemyMovement>().DieSpawning();
+        }
     }
 }

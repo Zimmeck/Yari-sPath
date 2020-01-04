@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5656357914845964558}
   - component: {fileID: 5656357914845964530}
   - component: {fileID: 5656357914845964557}
+  - component: {fileID: 954004110}
+  - component: {fileID: 954004116}
   m_Layer: 15
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -108,6 +110,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db38d0f204553fb4bbbc15c27f5d3ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &954004110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5656357914845964553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f69848a139b2c4aa090ecd81c140fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePrefab: {fileID: 8267726367186810314, guid: c97d6dba7da65ce458082010b11339e7,
+    type: 3}
+  firePoint: {fileID: 5656357914845964556}
+  inFire: 0
+  timeToBurn: 0
+  startTimeToBurn: 0
+--- !u!114 &954004116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5656357914845964553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00e9d6240744a14eaedbd9cb20eaea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isKey: 0
+  inFire: 0
 --- !u!1 &5656357915367568306
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5656357915919246695}
   - component: {fileID: 5656357915919246693}
-  - component: {fileID: 5656357915919246692}
+  - component: {fileID: 5061884204349786399}
   m_Layer: 0
   m_Name: HurtTrigger
   m_TagString: Untagged
@@ -320,7 +354,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5656357915919246692
+--- !u!114 &5061884204349786399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -329,7 +363,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5656357915919246694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e1fa7f1695487a4cb0985dc61ca4d9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a023f6869bdc8545bf7d7cc30fe7abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5656357915957659107

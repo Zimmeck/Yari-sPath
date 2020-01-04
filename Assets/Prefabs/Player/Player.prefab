@@ -220,7 +220,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331904159075229017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0900002, y: 1.2029998, z: 0}
+  m_LocalPosition: {x: -2.0900002, y: 1.181, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1680307001161120796}
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331904159075229017}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b149ac81d16bed4fadd79cd6f8ae313, type: 3}
   m_Name: 
@@ -346,7 +346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2924903324285232795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3190002, y: 0.9519999, z: 0}
+  m_LocalPosition: {x: -2.3190002, y: 0.73300004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1680307001161120796}
@@ -359,7 +359,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2924903324285232795}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b149ac81d16bed4fadd79cd6f8ae313, type: 3}
   m_Name: 
@@ -504,7 +504,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3381575929985090848}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.599, y: 0.745, z: 0}
+  m_LocalPosition: {x: -2.599, y: 0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1680307001161120796}
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3381575929985090848}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b149ac81d16bed4fadd79cd6f8ae313, type: 3}
   m_Name: 
@@ -885,7 +885,7 @@ MonoBehaviour:
   vibrationManager: {fileID: 2694904339546777569, guid: cf054a8bf33ebb047bdef10d2f68d26b,
     type: 3}
   mana: 0
-  maxMana: 0
+  maxMana: 2
   maxSpears: 3
   moveSpeed: 375
   changingRoomSpeed: 400
@@ -908,7 +908,7 @@ MonoBehaviour:
   maxSpearCharge: 0
   maxChargeEspecialSpearTime: 0
   moveCamSpeed: 2
-  earlyJumpDetection: 1
+  earlyJumpDetection: 2
   startTimeToRespawn: 1
   startTimeToHoldButton: 0.1
   timeToHoldButton: 0
