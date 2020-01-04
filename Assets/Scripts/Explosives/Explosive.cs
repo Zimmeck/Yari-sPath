@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Explosive : MonoBehaviour
 {
+    public GameObject explosionSoundObj;
     public SpriteRenderer mySprite;
     public GameObject explossionPrefab;
     public GameObject smokePrefab;
@@ -15,9 +16,11 @@ public class Explosive : MonoBehaviour
     public float startTimeToExplode;
     IEnumerator ExplodeBombInTime()
     {
-        yield return new WaitForSeconds(delayTime);
-        Detonate();
-
+        if (!exploding)
+        {
+            yield return new WaitForSeconds(delayTime);
+            Detonate();
+        }
     }
 
 
@@ -48,8 +51,11 @@ public class Explosive : MonoBehaviour
         GameObject explosionInstance = Instantiate(explossionPrefab, transform.position, Quaternion.identity);
         Instantiate(smokePrefab, transform.position, Quaternion.identity);
         FindObjectOfType<VibrationManager>().Vibrate(.5f,.5f,.1f);
+        Instantiate(explosionSoundObj, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -84,6 +90,7 @@ public class Explosive : MonoBehaviour
     {
         if (collision.GetComponent<Explossion>() != null)
         {
+            exploding = true;
             StartCoroutine(ExplodeBombInTime());
         }
     }

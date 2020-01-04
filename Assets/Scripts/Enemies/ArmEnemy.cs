@@ -39,37 +39,49 @@ public class ArmEnemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.parent.gameObject.CompareTag("SpearL") || collision.transform.parent.gameObject.CompareTag("SpearR"))
+        if (collision.transform.parent != null)
         {
-            if (collision.transform.parent.gameObject.GetComponent<SpearScr>().stuck = true)
+            if (collision.transform.parent.gameObject.CompareTag("SpearL") || collision.transform.parent.gameObject.CompareTag("SpearR"))
             {
-                if (!speared)
+                if (collision.transform.parent.gameObject.GetComponent<SpearScr>().stuck = true)
                 {
-                    speared = true;
+                    if (!speared)
+                    {
+                        speared = true;
+                    }
                 }
             }
         }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.parent.gameObject.CompareTag("SpearL") || collision.transform.parent.gameObject.CompareTag("SpearR"))
+        if (collision.transform.parent != null)
         {
-            if (speared)
+            if (collision.transform.parent.gameObject.CompareTag("SpearL") || collision.transform.parent.gameObject.CompareTag("SpearR"))
             {
-                speared = false;
+                if (speared)
+                {
+                    speared = false;
+                }
             }
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.parent.gameObject.CompareTag("SpearL") || collision.transform.parent.gameObject.CompareTag("SpearR"))
+        if (collision.transform.parent != null)
         {
-            if(collision.GetComponentInParent<SpearScr>().stuck == true)
+            if (collision.transform.parent.gameObject.CompareTag("SpearL") || collision.transform.parent.gameObject.CompareTag("SpearR"))
             {
-                Instantiate(hurtEffect, transform.position, Quaternion.identity);
-            } 
+                if (collision.GetComponentInParent<SpearScr>().stuck == true)
+                {
+                    Instantiate(hurtEffect, transform.position, Quaternion.identity);
+                }
+            }
         }
+
     }
 
 }

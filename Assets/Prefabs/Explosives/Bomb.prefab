@@ -362,6 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803911a074062bc48888e63f5b352e91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionSoundObj: {fileID: 436873487070265512, guid: fdef043c893c37649a2699a85371a8e4,
+    type: 3}
   mySprite: {fileID: 3053460550420694214}
   explossionPrefab: {fileID: 8671892664945028374, guid: fdd9c5f97c0a6674aabf67f01021b37d,
     type: 3}
