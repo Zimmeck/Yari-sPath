@@ -21,10 +21,13 @@ public class CameraBehaviour : MonoBehaviour
         CM_FollowPlayer.gameObject.SetActive(true);
     }
 
+    private void Awake()
+    {
+        ActivateFollowCam();
+    }
     // Start is called before the first frame update
     void Start()
     {
-
         virtualCameraNoise = actualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 

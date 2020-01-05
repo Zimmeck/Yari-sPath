@@ -7,6 +7,7 @@ public class FallOnPlayerDown : MonoBehaviour
     private Rigidbody2D rb;
     public Transform rayPoint;
     public float detectionDistance;
+    RaycastHit2D hit;
 
     private IEnumerator WaitAndFall()
     {
@@ -29,7 +30,7 @@ public class FallOnPlayerDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(rayPoint.position, Vector2.down, detectionDistance);
+        hit = Physics2D.Raycast(rayPoint.position, Vector2.down, detectionDistance);
         if (hit)
         {
             if (hit.collider.gameObject.CompareTag("Player"))
@@ -42,7 +43,7 @@ public class FallOnPlayerDown : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.yellow;
         Gizmos.DrawRay(rayPoint.position, Vector2.down * detectionDistance);
     }
 }

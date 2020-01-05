@@ -73,9 +73,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySpr: {fileID: 5656357915367568306}
   minDistanceToChase: 50
-  moveSpeed: 5
+  moveSpeed: 7
   moveSpeedV: 40
-  maxSpeed: 7
+  maxSpeed: 10
   deadParticles: {fileID: 7296630721151436077, guid: 9f1dc8a3056698c47a2a641f1e074b56,
     type: 3}
   enemyToSpawn: {fileID: 5243157954165031253, guid: f7b09a82ae5c0a14b9d044e0210484ab,

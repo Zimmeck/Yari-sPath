@@ -844,7 +844,7 @@ MonoBehaviour:
   downSlot: {fileID: 1517823359}
   leftSlot: {fileID: 1774914134}
   abilityPickedCount: 0
-  maxAbilities: 2
+  maxAbilities: 1
 --- !u!1 &1435077314
 GameObject:
   m_ObjectHideFlags: 0
